@@ -9,8 +9,17 @@ def read_list():
     lst_str = input ("Introduceti numerele prin spatiu:")
     lst_str_split = lst_str.split(' ')
     for num_str in lst_str_split:
-        lst.append(float(num_str))
+        lst.append(int(num_str))
     return lst
+
+def det_nr_intregi(lst):
+    lista=[]
+    for i in lst:
+        x=i
+        z=int(i)
+        if x == z:
+            lista.append(i)
+    return lista
 
 def main():
     lst=[]
@@ -20,7 +29,7 @@ def main():
         if opt == 1:
             lst = read_list()
         elif opt == 2:
-            pass
+            print("Numerele intregi sunt: ", det_nr_intregi(lst))
         elif opt == 3:
             pass
         elif opt == 4:

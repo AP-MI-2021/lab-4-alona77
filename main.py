@@ -59,10 +59,11 @@ def div_intreg_fract(lst):
     for elem in lst:
         elem_integer=int(elem)
         elem_str=str(elem)
-        elem_str_fract=elem_str.split('.')[1]
+        if ('.') in elem_str:
+            elem_str_fract=elem_str.split('.')[1]
         elem_int_fract=int(elem_str_fract)
-        if elem_int_fract % elem_integer == 0:
-            result.append(elem)
+        if elem_int_fract % elem_integer == 0 and elem_int_fract !=0:
+              result.append(elem)
     return result
 
 def test_div_intreg_fract():

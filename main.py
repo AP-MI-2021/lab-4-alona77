@@ -1,4 +1,3 @@
-#from os import read
 def show_menu():
     print("1. Citire lista")
     print("2. Afisarea partii intregi a fiecarui numar din lista")
@@ -49,6 +48,29 @@ def test_get_elem_interval():
     assert get_elem_interval([5.3, 7.9, 11.6], 4, 6) == [5.3]
     assert get_elem_interval([2, 6.90, 10], 3, 4) == []
 
+
+def div_intreg_fract(lst):
+    """
+    Determina nr a caror parte intreaga este divizor al partii fractionare
+    param intrare: lista floaturi
+    return:lista cu elem care respecta proprietatea
+    """
+    result=[]
+    for elem in lst:
+        elem_integer=int(elem)
+        elem_str=str(elem)
+        elem_str_fract=elem_str.split('.')[1]
+        elem_int_fract=int(elem_str_fract)
+        if elem_int_fract % elem_integer == 0:
+            result.append(elem)
+    return result
+
+def test_div_intreg_fract():
+    assert div_intreg_fract([1.5, -3.3, 8, 9.8, 3.2]) == [1.5, -3.3]
+    assert div_intreg_fract([]) == []
+    assert div_intreg_fract([2.8, 9, 3.7]) ==[2.8]
+
+
 def main():
     lst=[]
     while True:
@@ -65,7 +87,8 @@ def main():
             result=get_elem_interval(lst, first, second)
             print(f'Numerele incluse in intervalul cerut sunt {result}')
         elif opt == 4:
-            pass
+            result=div_intreg_fract(lst)
+            print(f'Numerele listei a caror parte intreaga divide partea fract sunt {result}')
         elif opt == 5:
             pass
         elif opt == 6:
@@ -76,4 +99,5 @@ def main():
 if __name__ == '__main__':
     test_get_integers()
     test_get_elem_interval()
+    test_div_intreg_fract()
     main()

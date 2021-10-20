@@ -71,6 +71,17 @@ def test_div_intreg_fract():
     assert div_intreg_fract([]) == []
     assert div_intreg_fract([2.8, 9, 3.7]) ==[2.8]
 
+def elem_descrise_string(lst):
+    """
+    Construieste o noua lista de string-uri care descriu fiecare elem din lista data
+    param intrare: lista float-uri
+    return: lista string-uri
+    """
+    result=[]
+    dict={1: 'unu', 2: 'doi', 3: 'trei', 4: 'patru', 5: 'cinci', \
+            6: 'sase', 7: 'sapte', 8: 'opt', 9: 'noua', '.': 'virgula', '-':'minus' }
+    pass
+
 
 def main():
     lst=[]
@@ -91,7 +102,8 @@ def main():
             result=div_intreg_fract(lst)
             print(f'Numerele listei a caror parte intreaga divide partea fract sunt {result}')
         elif opt == 5:
-            pass
+            result=elem_descrise_string(lst)
+            print(f'Noua lista care descrie prin cuvinte elem este {result}')
         elif opt == 6:
             break
         else: 
